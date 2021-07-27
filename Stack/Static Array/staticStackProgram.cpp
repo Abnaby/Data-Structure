@@ -3,6 +3,7 @@
 /* Date		: 26 July 2021                                 		    	 */
 /* Version	: V01							  							  */
 /**************************************************************************/
+
 // Include the string library
 #include <string>
 #include <iostream>
@@ -18,7 +19,7 @@ public:
 
 	void pushToStack(workingDataType copy_intPushNumToStack)
 	{
-		if (isEmpty())
+		if (isFull() == 0)
 		{
 			top++;
 			stack[top] = copy_intPushNumToStack;
@@ -30,7 +31,7 @@ public:
 	}
 	bool isEmpty(void)
 	{
-		if (top < stackArraySize)
+		if (top  == -1)
 			return 1;
 		return 0;
 	}
@@ -42,7 +43,7 @@ public:
 	}
 	void popFromStack(void)
 	{
-		if (getNumberOfElement() == 0) {}
+		if (getNumberOfElement() == 0) {//TODO ERROR}
 		else
 		{
 			top--;
