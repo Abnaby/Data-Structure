@@ -1,7 +1,7 @@
 /**************************************************************************/
 /* Author	: Mohamed                                               	  */
 /* Date		: 26 July 2021                                 		    	 */
-/* Version	: V01							  							  */
+/* Version	: V01.1							  							  */
 /**************************************************************************/
 
 // Include the string library
@@ -37,7 +37,7 @@ public:
 	}
 	bool isFull(void)
 	{
-		if (top > stackArraySize || top == stackArraySize)
+		if (top > stackArraySize)
 			return 1;
 		return 0;
 	}
