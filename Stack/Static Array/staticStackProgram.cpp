@@ -1,7 +1,7 @@
 /**************************************************************************/
 /* Author	: Mohamed                                               	  */
-/* Date		: 26 July 2021                                 		    	 */
-/* Version	: V01.1							  							  */
+/* Date		: 28 July 2021                                 		    	 */
+/* Version	: V1.2							  							  */
 /**************************************************************************/
 
 // Include the string library
@@ -43,13 +43,14 @@ public:
 	}
 	void popFromStack(void)
 	{
-		if (getNumberOfElement() == 0) {//TODO ERROR}
+		if (getNumberOfElement() == 0) {/*TODO ERROR*/}
 		else
 		{
 			top--;
 		}
 
 	}
+	
 	int getNumberOfElement(void)
 	{
 		return (top + 1);
