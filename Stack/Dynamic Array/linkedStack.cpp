@@ -1,7 +1,7 @@
 /**************************************************************************/
 /* Author	: Mohamed                                               	  */
-/* Date		: 27 July 2021                                 		    	 */
-/* Version	: V02							  							  */
+/* Date		: 29 July 2021                                 		    	 */
+/* Version	: V02.1							  							  */
 /**************************************************************************/
 #include <string>
 template <class workingDataType>
@@ -51,6 +51,8 @@ public:
 		{
 			// make temp ptr point to last node 
 			Node* tempPtr = top;
+			//Reduce Number of Nodes 
+			numberOfNodes--;
 			// Make TopPtr point to new place
 			top = top->nextPointer;
 			// Disconnect Between two nodes
@@ -68,6 +70,8 @@ public:
 		{
 			// Return Value
 			*topOfStack = top->nodeNumValue; 
+			//Reduce Number of Nodes 
+			numberOfNodes--; 
 			// make temp ptr point to last node 
 			Node* tempPtr = top;
 			// Make TopPtr point to new place
@@ -104,7 +108,6 @@ private:
 		workingDataType nodeNumValue;
 		Node* nextPointer;
 	};
-	// Represent stack pointer
 	Node* top;
 	int numberOfNodes;
 };
