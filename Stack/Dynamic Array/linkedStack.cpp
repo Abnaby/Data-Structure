@@ -1,7 +1,7 @@
 /**************************************************************************/
 /* Author	: Mohamed                                               	  */
 /* Date		: 27 July 2021                                 		    	 */
-/* Version	: V01							  							  */
+/* Version	: V02							  							  */
 /**************************************************************************/
 #include <string>
 template <class workingDataType>
@@ -22,8 +22,8 @@ public:
 		// Create malloc of struct size 
 		Node* newItemPtr = new Node;
 		//Check process for allocating mem 
-		if(newItemPtr != NULL) 
-		{ 
+		if (newItemPtr != NULL)
+		{
 			numberOfNodes++;
 			//Add Vlaue to stack
 			newItemPtr->nodeNumValue = copy_PushItemToStack;
@@ -39,19 +39,42 @@ public:
 	}
 	bool isEmpty(void)
 	{
-		return top == NULL; 
+		return top == NULL;
+	}
+	bool isFull(void)
+	{
+		return 0;
 	}
 	void popFromStack(void)
 	{
 		if (!isEmpty())
 		{
 			// make temp ptr point to last node 
-			Node* tempPtr = top; 
+			Node* tempPtr = top;
 			// Make TopPtr point to new place
-			top = top->nextPointer; 
+			top = top->nextPointer;
 			// Disconnect Between two nodes
 			tempPtr = tempPtr->nextPointer = NULL;
-			delete tempPtr; 
+			delete tempPtr;
+		}
+		else
+		{
+			//<TODO ERROR> stack is empty
+		}
+	}
+	void popFromStack(workingDataType* topOfStack)
+	{
+		if (!isEmpty())
+		{
+			// Return Value
+			*topOfStack = top->nodeNumValue; 
+			// make temp ptr point to last node 
+			Node* tempPtr = top;
+			// Make TopPtr point to new place
+			top = top->nextPointer;
+			// Disconnect Between two nodes
+			tempPtr = tempPtr->nextPointer = NULL;
+			delete tempPtr;
 		}
 		else
 		{
@@ -60,13 +83,13 @@ public:
 	}
 	int getNumberOfElement(void)
 	{
-		return numberOfNodes ;
+		return numberOfNodes;
 	}
-	workingDataType getTopOfStack(void)
+	void getTopOfStack(workingDataType* topOfStack)
 	{
 		if (!isEmpty())
 		{
-			return top->nodeNumValue; 
+			*topOfStack =  top->nodeNumValue;
 		}
 		else
 		{
@@ -74,13 +97,14 @@ public:
 		}
 	}
 
-	
+
 private:
 	struct Node
 	{
 		workingDataType nodeNumValue;
 		Node* nextPointer;
 	};
-	Node* top; 
-	int numberOfNodes; 
+	// Represent stack pointer
+	Node* top;
+	int numberOfNodes;
 };

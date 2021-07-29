@@ -1,7 +1,7 @@
 /**************************************************************************/
 /* Author	: Mohamed                                               	  */
-/* Date		: 28 July 2021                                 		    	 */
-/* Version	: V1.2							  							  */
+/* Date		: 29 July 2021                                 		    	 */
+/* Version	: V2							  							  */
 /**************************************************************************/
 
 // Include the string library
@@ -31,7 +31,7 @@ public:
 	}
 	bool isEmpty(void)
 	{
-		if (top  == -1)
+		if (top == -1)
 			return 1;
 		return 0;
 	}
@@ -43,34 +43,42 @@ public:
 	}
 	void popFromStack(void)
 	{
-		if (getNumberOfElement() == 0) {/*TODO ERROR*/}
+		if (getNumberOfElement() == 0) {/*TODO ERROR*/ }
 		else
 		{
 			top--;
 		}
-
 	}
-	
+	void popFromStack(workingDataType *topOfStack)
+	{
+		if (getNumberOfElement() == 0) {/*TODO ERROR*/ }
+		else
+		{
+			*topOfStack = stack[top];
+			top--;
+		}
+	}
+
 	int getNumberOfElement(void)
 	{
 		return (top + 1);
 	}
-	workingDataType getTopOfStack(void)
+	void getTopOfStack(workingDataType* topOfStack)
 	{
 		if (getNumberOfElement() > 0)
 		{
-			return stack[top];
+			*topOfStack = stack[top];
+
 		}
 		else
 		{
 			// TODO ERROR
 		}
-		return 0;
 	}
 
 
 private:
-	int top; 
+	int top;
 	workingDataType stack[stackArraySize];
 };
 
